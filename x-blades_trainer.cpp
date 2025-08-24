@@ -52,7 +52,7 @@ Trainer::Trainer() : Health_Status(false), Rage_Status(false), NeedsUpdate(true)
 
             if(NeedsUpdate)
             {
-                std::cout << "\x1B[2J\x1B[H";
+                std::cout << "\033[2J\033[H";
                 std::cout << "======================\n   X-Blades Trainer\n======================\n\n";
 
                 ReadProcessMemory(XBlades, (BYTE*)HealthAddr, &Health_Value, sizeof(Health_Value), nullptr);
@@ -61,8 +61,8 @@ Trainer::Trainer() : Health_Status(false), Rage_Status(false), NeedsUpdate(true)
                 ReadProcessMemory(XBlades, (BYTE*)RageAddr, &Rage_Value, sizeof(Rage_Value), nullptr);
                 std::cout << "Rage: " << std::dec << Rage_Value << "\n\n";
 
-                std::cout << "[F1] Health " << (Health_Status ? "(\x1B[32mon\033[0m)" : "(\x1B[31moff\033[0m)") << "\n";
-                std::cout << "[F2] Rage " << (Rage_Status ? "(\x1B[32mon\033[0m)" : "(\x1B[31moff\033[0m)") << "\n";
+                std::cout << "[F1] Health " << (Health_Status ? "(\033[32mon\033[0m)" : "(\033[31moff\033[0m)") << "\n";
+                std::cout << "[F2] Rage " << (Rage_Status ? "(\033[32mon\033[0m)" : "(\033[31moff\033[0m)") << "\n";
                 std::cout << "[F3] Add 1,000,000 Souls\n";
                 std::cout << "[F4] Add 10,000,000 Souls\n";
                 std::cout << "[F5] Exit\n";
